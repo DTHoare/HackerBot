@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
   public GameObject player;
   public float height;
+  public float behind;
 
   private Vector3 offset;
 
@@ -13,12 +14,13 @@ public class CameraController : MonoBehaviour
   void Start()
   {
     //offset = new Vector3(0.0f, 0.0f, transform.position.z - player.transform.position.z);
-    offset = new Vector3(0.0f, height, 0.0f);
+    offset = new Vector3(0.0f, height, -behind);
   }
 
   // Update is called once per frame
   void LateUpdate()
   {
     transform.position = player.transform.position + offset;
+    transform.LookAt(player.transform);
   }
 }
