@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerDeathEnable : MonoBehaviour
+public class enableOnPlayerDeath : MonoBehaviour
 {
     // Start is called before the first frame update
     void Awake()

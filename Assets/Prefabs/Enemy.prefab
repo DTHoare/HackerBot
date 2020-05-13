@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faction: Enemy
+  isObjective: 1
   aimPoint: {fileID: 6201550649391250542}
 --- !u!1 &6201550649391250543
 GameObject:

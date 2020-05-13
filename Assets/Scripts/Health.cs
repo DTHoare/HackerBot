@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
   public float health = 100;
+  private bool alive = true;
 
   // Start is called before the first frame update
   void Start()
@@ -20,11 +21,10 @@ public class Health : MonoBehaviour
 
   public void takeDamage(float damage)
   {
-    health -= damage;
-
     //Handle death of objects
-    if (health <= 0)
+    if (health <= 0 & alive)
     {
+      alive = false;
       if (gameObject.tag == "Player")
       {
         EventManager.TriggerEvent ("PlayerDeath");
@@ -34,6 +34,10 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
       }
 
+    }
+    else
+    {
+      health -= damage;
     }
   }
 }

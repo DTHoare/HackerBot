@@ -7,6 +7,7 @@ public class Actor : MonoBehaviour
     [Tooltip("Represents the faction (or team) of the actor. Actors of the same faction are friendly to eachother")]
     public string faction;
     [Tooltip("Represents point where other actors will aim when they attack this actor")]
+    public bool isObjective = false;
     public Transform aimPoint;
 
     ActorManager m_ActorManager;
@@ -29,6 +30,11 @@ public class Actor : MonoBehaviour
         if (m_ActorManager)
         {
             m_ActorManager.actors.Remove(this);
+        }
+
+        if (isObjective)
+        {
+          EventManager.TriggerEvent ("EnemyDeath");
         }
     }
 }
